@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0d0d0f;
+  --bg-secondary: #141418;
+  --bg-card: #1a1a20;
+  --bg-hover: #22222a;
+  --accent-primary: #7c6af7;
+  --accent-secondary: #5eead4;
+  --accent-warning: #f59e0b;
+  --accent-success: #10b981;
+  --accent-danger: #ef4444;
+  --text-primary: #f0f0f5;
+  --text-secondary: #9090a8;
+  --text-muted: #5a5a70;
+  --border: #2a2a35;
+  --border-accent: #3a3a50;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+code, pre { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+
+pre {
+  background: #0a0a0d;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #c9d1d9;
+}
+
+.prose-content h2 {
+  color: var(--accent-primary);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.prose-content h3 { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin: 1.2rem 0 0.5rem; }
+.prose-content p { margin-bottom: 0.75rem; color: var(--text-secondary); }
+.prose-content ul, .prose-content ol { padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+.prose-content li { margin-bottom: 0.35rem; }
+.prose-content strong { color: var(--text-primary); font-weight: 600; }
+.prose-content code {
+  background: #1e1e2e; border: 1px solid var(--border); border-radius: 4px;
+  padding: 0.1em 0.4em; font-size: 0.83em; color: var(--accent-secondary);
+}
+
+.badge {
+  display: inline-flex; align-items: center; padding: 0.2rem 0.65rem;
+  border-radius: 999px; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.03em; text-transform: uppercase;
+}
+.badge-easy { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+.badge-medium { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+.badge-hard { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+.badge-concept { background: rgba(124,106,247,0.15); color: #7c6af7; border: 1px solid rgba(124,106,247,0.3); }
+.badge-design { background: rgba(94,234,212,0.15); color: #5eead4; border: 1px solid rgba(94,234,212,0.3); }
+
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; transition: border-color 0.2s, transform 0.15s;
+}
+.card:hover { border-color: var(--border-accent); transform: translateY(-1px); }
+.card-active { border-color: var(--accent-primary) !important; background: rgba(124,106,247,0.06) !important; }
+
+.btn-primary {
+  background: var(--accent-primary); color: white; border: none;
+  border-radius: 8px; padding: 0.55rem 1.25rem; font-size: 0.875rem;
+  font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.15s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.55rem 1.25rem; font-size: 0.875rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+
+.sidebar-item {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.6rem 0.85rem; border-radius: 8px;
+  color: var(--text-secondary); cursor: pointer;
+  transition: all 0.15s; text-decoration: none;
+  font-size: 0.875rem; font-weight: 500; border: 1px solid transparent;
+}
+.sidebar-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.sidebar-item.active { background: rgba(124,106,247,0.12); color: var(--accent-primary); border-color: rgba(124,106,247,0.2); }
+
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fade-in 0.3s ease forwards; }
